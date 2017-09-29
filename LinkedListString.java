@@ -12,11 +12,11 @@ public class LinkedListString{
     newNode.next = null;
 
     /* 追加する前のリストの要素数が、0個の時と1以上の時で場合分け */
-    if(this.first == null){
-      this.first = newNode;
-      this.tail = newNode;
+    if(first == null){
+      first = newNode;
+      tail = newNode;
     }else{
-      tail.next = newNode;
+      next = newNode;
       tail = newNode;
     }
   }
@@ -25,7 +25,7 @@ public class LinkedListString{
     /* リストの先頭に要素を追加する。 */
     Node newNode = new Node();
     newNode.value = newValue;
-    newNode.next = this.first;
+    newNode.next = first;
     first = newNode;
   }
 
