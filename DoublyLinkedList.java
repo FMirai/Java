@@ -3,11 +3,11 @@ public class DoublyLinkedList{
   Node first;
   Node tail;
 
-  public void add(String newFloorNum, int newEvent){
+  public void add(String newTile, int newEvent){
     /* ノードの生成とノードの初期化 */
     Node newNode = new Node();
     newNode.event = newEvent;
-    newNode.floorNum = newFloorNum;
+    newNode.tile = newTile;
 
     /* 追加する前のリストの要素数が0個の時と1以上の時で場合分け */
     if(first == null){
@@ -25,5 +25,5 @@ class Node{
   Node next;
   Node prev;
   int event;
-  String floorNum;
+  String tile;
 }
