@@ -77,7 +77,7 @@ public class LinkedListString{
       currentNode = currentNode.next;
       currentPosition += 1;
     }
-    if(currentNode == null || !currentNode.value.equals(searchValue)){
+    if(currentNode == null){
       currentPosition = -1;
     }
     return currentPosition;
