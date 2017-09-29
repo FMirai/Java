@@ -60,6 +60,9 @@ public class LinkedListString{
       currentPosition += 1;
     }
     if(currentNode != null && currentPosition == position){
+      if(currentNode == tail){
+        tail = newNode;
+      }
       newNode.next = currentNode.next;
       currentNode.next = newNode;
       success = true;
