@@ -1,4 +1,4 @@
-public class LinkedListString{
+public class LinkedList{
   Node first;
 
   public void add(String newValue){
@@ -11,16 +11,19 @@ public class LinkedListString{
     if(this.first == null){
       this.first = newNode;
     }else{
-      Node current = first;
+      Node current = this.first;
       while(current.next != null){
         current = current.next;
       }
       current.next = newNode;
     }
   }
-}
 
-class Node{
-  Node next;
-  String value;
+  public void show(){
+    Node currentNode = this.first;
+    while(currentNode != null){
+      System.out.println(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
 }
