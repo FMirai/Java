@@ -1,38 +1,31 @@
 import java.util.Scanner;
-/*
- *追加問題案
- *1:最初に出現するものを１つ削除する仕様だが、複数回出現する場合は、すべて削除するよう変更
- *2:削除した個数を表示する
-*/
+
 public class MemoManage{
   public static void main(String[] args){
-    LinkedListString lls = new LinkedListString();
+    /* リストの生成 */
+    LinkedList list = new LinkedList();
 
-    /* コマンドを表示 */
+    /* スキャナーの生成 */
     Scanner scan = new Scanner(System.in);
     while(true){
-      System.out.print("コマンドを入力してください。([1]:追加、[2]：表示、[3]:削除、[9]：終了)>");
+      /* コマンド入力 */
+      System.out.print("コマンドを入力してください。([1]:追加、[2]：表示、[3]：削除、[9]：終了)>");
       int command = scan.nextInt();
+      /* コマンドによる分岐 */
       if(command == 1){
         /* 追加が選択された時の処理 */
         System.out.print("メモに追加する内容を入力してください。>");
         String memo = scan.next();
-        lls.add(memo);
+        list.add(memo);
         System.out.println("「" + memo + "」をメモに追加しました。");
-
       }else if(command == 2){
         /* 表示が選択された時の処理 */
-        Node currentNode = lls.first;
-        while(currentNode != null){
-          System.out.println(currentNode.value);
-          currentNode = currentNode.next;
-        }
+        list.show();
       }else if(command == 3){
         /* 削除が選択された時の処理 */
         System.out.print("メモから削除したい内容を入力してください。>");
         String delMemo = scan.next();
-        lls.delete(delMemo);
-
+        list.delete(delMemo);
       }else if(command == 9){
         /* 終了が選択された時の処理 */
         System.out.println("終了します。");
