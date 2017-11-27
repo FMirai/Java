@@ -40,18 +40,19 @@ public class Sugoroku{
 
   static Map createMap(){
     Map map = new Map();
+    map.add(new IncomeTile(0));   //0
     map.add(new IncomeTile(100)); //1
     map.add(new IncomeTile(200)); //2
-    map.add(new LossTile(100));   //3
-    map.add(new IncomeTile(100)); //4
-    map.add(new LossTile(200));   //5
-    map.add(new IncomeTile(300)); //6
-    map.add(new IncomeTile(500)); //7
+    map.add(new IncomeTile(300)); //3
+    map.add(new IncomeTile(400)); //4
+    map.add(new IncomeTile(500)); //5
+    map.add(new IncomeTile(600)); //6
+    map.add(new LossTile(100));   //7
     map.add(new LossTile(200));   //8
-    map.add(new IncomeTile(300)); //9
-    map.add(new IncomeTile(100)); //10
-    map.add(new IncomeTile(200)); //11
-    map.add(new IncomeTile(100)); //12
+    map.add(new LossTile(300));   //9
+    map.add(new LossTile(400));   //10
+    map.add(new LossTile(500));   //11
+    map.add(new LossTile(600));   //12
     return map;
   }
 }
