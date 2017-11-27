@@ -9,8 +9,7 @@ public class Sugoroku{
     Scanner scan = new Scanner(System.in);
 
     /* マップの生成 */
-    Map map = new Map();
-    createMap(map);
+    Map map = createMap();
 
     /* プレイヤー作成 */
     System.out.print("プレイヤー名を入力してください。>");
