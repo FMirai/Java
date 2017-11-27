@@ -5,9 +5,8 @@ import java.util.Random;
 public class Sugoroku{
   public static void main(String[] args){
 
-    /* スキャナーとランダムの用意 */
+    /* スキャナーの用意 */
     Scanner scan = new Scanner(System.in);
-    Random random = new Random();
 
     /* マップの生成 */
     Map map = new Map();
@@ -17,21 +16,42 @@ public class Sugoroku{
     System.out.print("プレイヤー名を入力してください。>");
     String playerName = scan.next();
     Player player = new Player(playerName);
-    player.currentPosition = map.start;
+    player.setCurrentMap(map);        /* マップへの配置 */
 
     /* ゲームのメインループ */
-    int dice = random.nextInt(2) + 1;
-    System.out.println(dice);
+    while(true){
+      System.out.print("コマンドを選択してください。" +
+                         "[1]：ダイス、" +
+                         "[9]：終了>");
+      int command = scan.nextInt();
 
+      if(command == 1){
+        /* ダイス */
+        int dice = player.rollDice();
+        System.out.printf("「%d」がでました、「%d」マス進みます。\r\n", dice, dice);
+        player.moveForward(dice);
+      }else if(command == 9){
+        /* 終了 */
+        System.out.println("終了します。");
+        break;
+      }
+    }
   }
 
-  static void createMap(Map map){
-    map.add(new IncomeTile(100));
-    map.add(new IncomeTile(200));
-    map.add(new LossTile(100));
-    map.add(new IncomeTile(100));
-    map.add(new LossTile(200));
-    map.add(new IncomeTile(300));
-    map.add(new IncomeTile(500));
+  static Map createMap(){
+    Map map = new Map();
+    map.add(new IncomeTile(100)); //1
+    map.add(new IncomeTile(200)); //2
+    map.add(new LossTile(100));   //3
+    map.add(new IncomeTile(100)); //4
+    map.add(new LossTile(200));   //5
+    map.add(new IncomeTile(300)); //6
+    map.add(new IncomeTile(500)); //7
+    map.add(new LossTile(200));   //8
+    map.add(new IncomeTile(300)); //9
+    map.add(new IncomeTile(100)); //10
+    map.add(new IncomeTile(200)); //11
+    map.add(new IncomeTile(100)); //12
+    return map;
   }
 }

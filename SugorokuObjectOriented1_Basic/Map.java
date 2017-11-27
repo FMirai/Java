@@ -1,22 +1,21 @@
 class Map{
-  /**
-  * 双六のマップを表現するクラス
-  */
+  /** 双六のマップを表現するクラス */
+  /* フィールド */
+  private Tile start; /* 先頭タイルへのポインタ */
+  private Tile end;   /* 末尾タイルへのポインタ */
 
-  /* 最初と最後のタイルへのポインタ */
-  Tile start;
-  Tile end;
+  /* ゲッター(getter) */
+  public Tile getStart(){
+    return this.start;
+  }
 
-  /* 総タイル数を数える変数 */
-  int tile_count = 0;
-
-  /* タイルを追加するメソッド */
+  /* メソッド */
   void add(Tile newTile){
-
+    /* タイルを追加するメソッド */
     if(start == null){
       this.start = newTile;
     }else{
-      this.end.next = newTile;
+      this.end.setNext(newTile);
     }
     this.end = newTile;
   }

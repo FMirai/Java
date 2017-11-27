@@ -1,23 +1,15 @@
 abstract class Tile{
-  /**
-  * 双六に含まれる１つ１つのタイルを表現するクラス
-  */
-
+  /** 双六に含まれる１つ１つのタイルを表現するクラス */
   /* フィールド */
-  Tile next;   /* 次のタイルへのポインタ */
-  String type; /* タイルのタイプ */
+  private Tile next;   /* 次のタイルへのポインタ */
+  private String type; /* タイルのタイプ */
 
-  void setType(String type){
-    this.type = type;
-  }
+  /* セッター(setter) & ゲッター(getter) */
+  public void setNext(Tile next){ this.next = next; }
+  public Tile getNext(){ return this.next; }
+  public void setType(String type){ this.type = type; }
+  public String getType(){ return this.type; }
 
-  String getType(){
-    return this.type;
-  }
-
-
-  /* タイルに止まった場合の出力メッセージ */
-  String message;
-
-  abstract void activateEvent(Player player);
+  /* 抽象メソッド */
+  public abstract void activateEvent(Player player);
 }

@@ -1,6 +1,7 @@
 class LossTile extends Tile{
-
-  int lossAmount;
+  /** 減益タイルを表現するクラス */
+  /* フィールド */
+  int lossAmount; /* 減益量 */
 
   /* コンストラクタ */
   LossTile(int lossAmount){
@@ -8,11 +9,11 @@ class LossTile extends Tile{
     this.lossAmount = lossAmount;
   }
 
-  /* イベント用メソッド */
+  /* メソッド */
   @Override
-  void activateEvent(Player player){
+  public void activateEvent(Player player){
+    /* イベント用メソッド */
     System.out.printf("「%s」タイルです。「%d」円失いました。\r\n" ,getType(), this.lossAmount);
-    player.money = player.money - this.lossAmount;
+    player.setMoney(player.getMoney() - this.lossAmount);
   }
-
 }

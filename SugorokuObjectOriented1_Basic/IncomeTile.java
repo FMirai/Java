@@ -1,17 +1,19 @@
 class IncomeTile extends Tile{
-
-  int incomeAmount;
+  /** 収益タイルを表現するクラス */
+  /* フィールド */
+  int incomeAmount; /* 収益量 */
 
   /* コンストラクタ */
   IncomeTile(int incomeAmount){
-    setType("収益");
+    this.setType("収益");
     this.incomeAmount = incomeAmount;
   }
 
-  /* イベント用メソッド */
+  /* メソッド */
   @Override
-  void activateEvent(Player player){
+  public void activateEvent(Player player){
+    /* イベント用メソッド */
     System.out.printf("「%s」タイルです。「%d」円獲得しました。\r\n" ,getType(), this.incomeAmount);
-    player.money = player.money + this.incomeAmount;
+    player.setMoney(player.getMoney() + this.incomeAmount);
   }
 }
