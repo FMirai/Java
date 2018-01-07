@@ -13,7 +13,7 @@ class IncomeTile extends Tile{
   @Override
   public void activateEvent(Player player){
     /* イベント用メソッド */
-    System.out.printf("「%s」タイルです。「%d」円獲得しました。\r\n" ,getType(), this.incomeAmount);
+    System.out.printf("「%s」タイルです。「%d」円獲得しました。\r\n" ,this.getType(), this.incomeAmount);
     player.setMoney(player.getMoney() + this.incomeAmount);
   }
 }
