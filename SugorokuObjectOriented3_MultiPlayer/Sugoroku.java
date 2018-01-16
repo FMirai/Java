@@ -56,6 +56,12 @@ public class Sugoroku{
         }
       }
     }
+
+    /* 各プレイヤーの最終結果を表示 */
+    for(Player player: players){
+      System.out.printf("プレイヤー「%s」の最終的な所持金は、" +
+          "「%d」円でした。\r\n", player.getName(), player.getMoney());
+    }
   }
 
   static Map createMap(){
